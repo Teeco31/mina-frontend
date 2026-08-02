@@ -43,7 +43,7 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
   const [submitError, setSubmitError] = useState('')
   const [confirmedRef, setConfirmedRef] = useState('')
 
-  // Lock background scroll (including Lenis) while the modal is open
+
   useEffect(() => {
     if (!isOpen) return
     const html = document.documentElement
