@@ -491,16 +491,14 @@ export default async function HomePage() {
       {/* ── LOCATION ── */}
       <section id="location" className="p-0">
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="relative flex items-center justify-center" style={{ minHeight: '360px' }}>
-            <img
-              src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=900&auto=format&fit=crop&q=80"
-              alt="Port Harcourt"
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ filter: 'sepia(15%) contrast(1.1)' }}
+          <div className="relative" style={{ minHeight: '360px' }}>
+            <iframe
+              title="Mina Hotels location"
+              src="https://maps.google.com/maps?q=23+Igbodo+Street,+Old+GRA,+Port+Harcourt,+Rivers+State,+Nigeria&output=embed&z=16"
+              className="absolute inset-0 w-full h-full border-0"
               loading="lazy"
+              allowFullScreen
             />
-            <div className="absolute inset-0 bg-navy/40" />
-            <div className="location-map-pin relative z-10" />
           </div>
           <FadeIn>
             <div className="flex flex-col justify-center py-14 sm:py-18 px-6 sm:px-10 md:px-[72px] bg-cream">

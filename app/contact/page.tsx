@@ -289,17 +289,17 @@ export default function ContactPage() {
       </section>
 
       {/* Map */}
-      <section className="relative" style={{ height: 'clamp(260px, 35vw, 420px)' }}>
-        <img
-          src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1800&auto=format&fit=crop&q=80"
-          alt="Port Harcourt"
-          className="w-full h-full object-cover"
-          style={{ filter: 'sepia(15%) contrast(1.1)' }}
+      <section className="relative" style={{ height: 'clamp(320px, 42vw, 500px)' }}>
+        <iframe
+          title="Mina Hotels location"
+          src="https://maps.google.com/maps?q=23+Igbodo+Street,+Old+GRA,+Port+Harcourt,+Rivers+State,+Nigeria&output=embed&z=16"
+          className="w-full h-full border-0"
           loading="lazy"
+          allowFullScreen
         />
-        <div className="absolute inset-0 flex items-center justify-center bg-navy/45">
-          <div className="text-center px-4">
-            <div className="location-map-pin mx-auto mb-5" />
+        {/* Info card */}
+        <div className="absolute bottom-0 left-0 right-0 sm:right-auto sm:max-w-xs bg-navy/95 backdrop-blur-sm px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+          <div className="flex-1 min-w-0">
             <p
               className="text-white text-[11px] tracking-[0.22em] uppercase mb-1 font-inter"
               style={{ fontFamily: "'Inter', sans-serif" }}
@@ -307,21 +307,21 @@ export default function ContactPage() {
               Mina Hotels
             </p>
             <p
-              className="text-white/60 text-[13px] mb-5 font-inter"
+              className="text-white/55 text-[12px] leading-[1.6] font-inter"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
-              23 Igbodo Street, Old GRA, Port Harcourt
+              23 Igbodo Street, Old GRA<br />Port Harcourt
             </p>
-            <a
-              href="https://maps.google.com/?q=23+Igbodo+Street+Old+GRA+Port+Harcourt"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-7 py-2.5 bg-gold text-navy text-[10px] tracking-[0.22em] uppercase font-semibold hover:bg-gold-light transition-colors no-underline font-inter"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              Get Directions
-            </a>
           </div>
+          <a
+            href="https://maps.google.com/?q=23+Igbodo+Street+Old+GRA+Port+Harcourt"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-shrink-0 px-5 py-2.5 bg-gold text-navy text-[10px] tracking-[0.22em] uppercase font-semibold hover:bg-gold-light transition-colors no-underline font-inter"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            Get Directions
+          </a>
         </div>
       </section>
 
