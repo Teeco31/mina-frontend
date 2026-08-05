@@ -4,11 +4,13 @@ import { fetchBlogPosts, type PublicBlogPost } from '@/lib/api'
 
 export const metadata: Metadata = {
   title: 'Mina Updates',
-  description: 'Stories, news and offers from Mina Hotels, Port Harcourt — stay up to date with our latest events, dining specials, and lifestyle features.',
+  description: 'Stories, news, and offers from Mina Hotels, Port Harcourt — the latest events, dining specials, travel tips, and lifestyle features.',
+  alternates: { canonical: 'https://minahotels.com/mina-updates' },
   openGraph: {
     title: 'Mina Updates — Mina Hotels',
     description: 'Stories, news & offers from Mina Hotels Port Harcourt.',
     type: 'website',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Mina Updates blog' }],
   },
 }
 

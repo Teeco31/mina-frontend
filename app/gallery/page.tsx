@@ -1,8 +1,14 @@
 import FadeIn from '@/components/FadeIn'
 
 export const metadata = {
-  title: 'Gallery — Mina Hotels',
-  description: 'Browse images of Mina Hotels — our rooms, restaurant, bar, event spaces, and the surrounding Old GRA neighbourhood in Port Harcourt.',
+  title: 'Gallery',
+  description: 'Browse photos of Mina Hotels, Port Harcourt — rooms, The Mina Table restaurant, One Bar, event spaces, and the Old GRA neighbourhood.',
+  alternates: { canonical: 'https://minahotels.com/gallery' },
+  openGraph: {
+    title: 'Photo Gallery — Mina Hotels',
+    description: 'Browse photos of Mina Hotels Port Harcourt — rooms, restaurant, bar, and event spaces.',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Mina Hotels gallery' }],
+  },
 }
 
 const galleries = [

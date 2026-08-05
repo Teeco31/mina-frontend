@@ -3,20 +3,21 @@ import './globals.css'
 import ClientLayout from '@/components/ClientLayout'
 import Script from 'next/script'
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.mina-hotels.com'
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://minahotels.com'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Mina Hotels — Port Harcourt',
+    default: 'Mina Hotels — Luxury Boutique Hotel in Port Harcourt',
     template: '%s | Mina Hotels',
   },
   description:
-    'A boutique luxury hotel nestled in the serene setting of Old GRA, Port Harcourt. 41 ensuite rooms, world-class dining, and genuine Nigerian hospitality.',
+    'Mina Hotels — a boutique luxury hotel at 23 Igbodo Street, Old GRA, Port Harcourt. 41 ensuite rooms, fine West African dining, and genuine Nigerian hospitality.',
   keywords: [
     'Mina Hotels', 'Port Harcourt hotel', 'luxury hotel Port Harcourt',
     'Old GRA hotel', 'Nigeria boutique hotel', 'hotel Port Harcourt',
-    'Mina Hotels Nigeria', 'best hotel Port Harcourt',
+    'Mina Hotels Nigeria', 'best hotel Port Harcourt', 'hotel Old GRA Port Harcourt',
+    'boutique hotel Rivers State', 'minahotels.com',
   ],
   authors: [{ name: 'Mina Hotels' }],
   creator: 'Mina Hotels',
@@ -25,20 +26,20 @@ export const metadata: Metadata = {
     locale: 'en_NG',
     url: SITE_URL,
     siteName: 'Mina Hotels',
-    title: 'Mina Hotels — Port Harcourt',
-    description: 'Movers & Shakers. Boutique luxury in the heart of Port Harcourt, Nigeria.',
+    title: 'Mina Hotels — Luxury Boutique Hotel in Port Harcourt',
+    description: 'Movers & Shakers. Boutique luxury in the heart of Old GRA, Port Harcourt, Nigeria.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Mina Hotels Port Harcourt',
+        alt: 'Mina Hotels Port Harcourt — lobby and exterior',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mina Hotels — Port Harcourt',
+    title: 'Mina Hotels — Luxury Boutique Hotel in Port Harcourt',
     description: 'Movers & Shakers. Boutique luxury in Old GRA, Port Harcourt.',
     images: ['/og-image.jpg'],
   },
@@ -52,9 +53,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  verification: {
-    // google: 'your-google-site-verification-code',
   },
   alternates: {
     canonical: SITE_URL,
@@ -70,13 +68,14 @@ const hotelJsonLd = {
   url: SITE_URL,
   logo: `${SITE_URL}/images/images.png`,
   image: `${SITE_URL}/og-image.jpg`,
-  telephone: '+234-000-000-0000',
-  email: 'info@mina-hotels.com',
+  telephone: '+2348056155303',
+  email: 'info@minahotels.com',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Old GRA',
+    streetAddress: '23 Igbodo Street, Old GRA',
     addressLocality: 'Port Harcourt',
     addressRegion: 'Rivers State',
+    postalCode: '500211',
     addressCountry: 'NG',
   },
   geo: {
@@ -91,12 +90,15 @@ const hotelJsonLd = {
     { '@type': 'LocationFeatureSpecification', name: '24h Front Desk', value: true },
     { '@type': 'LocationFeatureSpecification', name: 'Free Wi-Fi', value: true },
     { '@type': 'LocationFeatureSpecification', name: 'Restaurant', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Bar & Lounge', value: true },
     { '@type': 'LocationFeatureSpecification', name: 'Business Centre', value: true },
     { '@type': 'LocationFeatureSpecification', name: 'Fitness Centre', value: true },
     { '@type': 'LocationFeatureSpecification', name: 'Secure Parking', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'In-Room Dining', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Complimentary Breakfast', value: true },
   ],
-  checkinTime: 'T14:00',
-  checkoutTime: 'T12:00',
+  checkinTime: 'T15:00',
+  checkoutTime: 'T11:00',
   currenciesAccepted: 'NGN',
   paymentAccepted: 'Cash, Credit Card, Bank Transfer',
 }

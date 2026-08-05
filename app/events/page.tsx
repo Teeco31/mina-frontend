@@ -2,8 +2,15 @@ import Link from 'next/link'
 import FadeIn from '@/components/FadeIn'
 
 export const metadata = {
-  title: 'Events & Occasions — Mina Hotels',
-  description: 'Host your corporate meetings, weddings, networking evenings, and seminars at Mina Hotels, Port Harcourt. Professional event spaces for up to 120 guests.',
+  title: 'Events & Occasions',
+  description: 'Host corporate meetings, weddings, networking evenings, and seminars at Mina Hotels, Port Harcourt. Professional event spaces for up to 120 guests in Old GRA.',
+  keywords: ['events Port Harcourt', 'corporate events hotel', 'wedding venue Port Harcourt', 'conference room Port Harcourt', 'event space Old GRA'],
+  alternates: { canonical: 'https://minahotels.com/events' },
+  openGraph: {
+    title: 'Events & Occasions — Mina Hotels',
+    description: 'Professional event spaces for corporate meetings, weddings, and seminars at Mina Hotels Port Harcourt.',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Mina Hotels event space' }],
+  },
 }
 
 const events = [

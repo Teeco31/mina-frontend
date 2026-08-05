@@ -8,10 +8,12 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Rooms & Suites',
   description: '41 ensuite rooms across 6 categories — Standard, Deluxe, Royal, Executive, Exclusive Suite, and Luxury Suite. Book your stay at Mina Hotels, Port Harcourt.',
+  keywords: ['Mina Hotels rooms', 'luxury suites Port Harcourt', 'hotel rooms Old GRA', 'executive suite Port Harcourt', 'boutique hotel rooms Nigeria'],
+  alternates: { canonical: 'https://minahotels.com/rooms' },
   openGraph: {
     title: 'Rooms & Suites — Mina Hotels',
     description: 'Choose from 41 beautifully appointed rooms and suites at Mina Hotels, Old GRA, Port Harcourt.',
-    images: [{ url: '/images/rooms/luxury-suite.jpg', width: 1200, height: 630, alt: 'Mina Hotels room' }],
+    images: [{ url: '/images/rooms/luxury-suite.jpg', width: 1200, height: 630, alt: 'Mina Hotels luxury suite' }],
   },
 }
 
