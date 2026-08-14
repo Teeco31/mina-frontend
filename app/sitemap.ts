@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.mina-hotels.com'
+const BASE = process.env.NEXT_PUBLIC_SITE_URL || 'https://minahotels.com'
 const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api/v1'
 
 async function fetchPublishedSlugs(): Promise<string[]> {

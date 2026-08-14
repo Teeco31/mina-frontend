@@ -15,14 +15,17 @@ export default function BookingBar() {
 
   return (
     <>
-      <div className="bg-navy px-5 sm:px-8 md:px-12 py-7 md:py-9 border-b border-gold/15">
+      <div className="bg-navy px-5 sm:px-8 md:px-12 py-7 md:py-9 border-b border-gold/15 border-t border-t-gold/30">
         {/* Label */}
-        <span
-          className="block text-[13px] md:text-[15px] font-light text-white tracking-[0.06em] mb-5 md:mb-6 font-playfair"
-          style={{ fontFamily: "'Playfair Display', serif" }}
-        >
-          Find Your Stay
-        </span>
+        <div className="flex items-center gap-4 mb-5 md:mb-6">
+          <div className="w-6 h-px bg-gold/50" />
+          <span
+            className="text-[10px] tracking-[0.28em] uppercase text-gold/80 font-inter"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            Find Your Stay
+          </span>
+        </div>
 
         {/* Fields grid */}
         <div className="grid grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1fr_auto] gap-x-6 gap-y-5 items-end">

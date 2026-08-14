@@ -178,7 +178,7 @@ export default function Footer() {
             className="text-[11px] text-white/20 tracking-[0.06em]"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
-            © 2025 Mina Hotels Ltd. All rights reserved. Port Harcourt, Nigeria.
+            © 2026 Mina Hotels Ltd. All rights reserved. Port Harcourt, Nigeria.
           </p>
           <div className="flex gap-6">
             {[

@@ -2,8 +2,15 @@ import Link from 'next/link'
 import FadeIn from '@/components/FadeIn'
 
 export const metadata = {
-  title: 'Dining — Mina Hotels',
-  description: 'Experience the richness of West African cuisine and continental dining at The Mina Table. Complimentary breakfast, a vibrant bar & lounge, and in-room dining.',
+  title: 'Dining & Restaurant',
+  description: 'Experience West African and continental dining at The Mina Table, Port Harcourt. Complimentary breakfast, signature cocktails at One Bar, and in-room dining.',
+  keywords: ['Mina Table restaurant', 'dining Port Harcourt', 'West African cuisine', 'One Bar Port Harcourt', 'hotel restaurant Old GRA'],
+  alternates: { canonical: 'https://minahotels.com/dining' },
+  openGraph: {
+    title: 'Dining & Restaurant — Mina Hotels',
+    description: 'West African and continental cuisine at The Mina Table. Breakfast, bar & lounge, and in-room dining.',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'The Mina Table restaurant' }],
+  },
 }
 
 const FALLBACK_COCKTAILS = [

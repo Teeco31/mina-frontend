@@ -2,10 +2,13 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Rewards Programme',
-  description: 'Join the Mina Rewards Programme. Earn 200 points per night and redeem for free stays. Classic, Gold and Prestige membership tiers.',
+  description: 'Join the Mina Rewards Programme. Earn 200 points per night and redeem for free stays. Classic, Gold, and Prestige membership tiers at Mina Hotels, Port Harcourt.',
+  keywords: ['Mina rewards', 'hotel loyalty programme Nigeria', 'hotel points Port Harcourt', 'Mina Hotels membership'],
+  alternates: { canonical: 'https://minahotels.com/loyalty' },
   openGraph: {
     title: 'Mina Rewards Programme — Mina Hotels',
     description: 'Earn loyalty points with every stay and enjoy exclusive rewards at Mina Hotels Port Harcourt.',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Mina Hotels rewards programme' }],
   },
 }
 
