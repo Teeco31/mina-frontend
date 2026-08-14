@@ -64,9 +64,9 @@ export default async function HomeReviewsSection() {
               {/* Stars */}
               <div className="flex gap-1 mb-5">
                 {[...Array(5)].map((_, j) => (
-                  <span key={j} className={`text-[14px] ${j < r.overallRating ? 'text-gold' : 'text-gray-200'}`}>
-                    ★
-                  </span>
+                  <svg key={j} viewBox="0 0 24 24" width="14" height="14" fill={j < r.overallRating ? '#C9A84C' : 'none'} stroke={j < r.overallRating ? '#C9A84C' : '#D1D5DB'} strokeWidth="1.5">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>
                 ))}
               </div>
 

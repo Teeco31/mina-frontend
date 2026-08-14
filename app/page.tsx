@@ -176,28 +176,32 @@ export default async function HomePage() {
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 border border-white/5">
+        <div className="grid grid-cols-1 md:grid-cols-2 mt-14 border-t border-white/[0.06]">
           {amenities.map((a, i) => (
             <FadeIn key={a.title} delay={`${(i % 4) * 0.07}s`}>
-              <div
-                className="flex flex-col gap-3 p-6 sm:p-8 md:p-10 bg-navy hover:bg-white/5 transition-colors duration-300 h-full"
-              >
-                <div className="w-10 h-10 flex items-center justify-center border border-gold/30">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#C9A84C" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                    {a.icon}
-                  </svg>
-                </div>
-                <div
-                  className="text-[11px] sm:text-[12px] tracking-[0.1em] uppercase text-white font-semibold font-inter"
+              <div className="flex items-start gap-5 py-7 px-2 sm:px-4 border-b border-white/[0.06] hover:bg-white/[0.03] transition-colors duration-300 group">
+                <span
+                  className="text-[10px] tracking-[0.2em] text-gold/40 pt-[3px] font-inter flex-shrink-0 w-7"
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 >
-                  {a.title}
-                </div>
-                <div
-                  className="text-[12px] sm:text-[13px] leading-[1.7] text-white/40 hidden sm:block font-inter"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  {a.desc}
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="rgba(201,168,76,0.65)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-[2px]">
+                  {a.icon}
+                </svg>
+                <div>
+                  <h3
+                    className="text-[11px] sm:text-[12px] tracking-[0.1em] uppercase text-white font-semibold mb-1.5 font-inter"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {a.title}
+                  </h3>
+                  <p
+                    className="text-[12px] sm:text-[13px] leading-[1.7] text-white/35 font-inter"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {a.desc}
+                  </p>
                 </div>
               </div>
             </FadeIn>
@@ -311,46 +315,44 @@ export default async function HomePage() {
           </FadeIn>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
           {[
-            { type: 'Business', title: 'Corporate Meetings & Conferences', desc: 'Versatile rooms with presentation tech for up to 120 guests.', img: 'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=400&auto=format&fit=crop&q=80', delay: '0s' },
-            { type: 'Celebrations', title: 'Weddings & Private Parties', desc: 'From intimate receptions to elaborate banquets.', img: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&auto=format&fit=crop&q=80', delay: '0.1s' },
-            { type: 'Networking', title: 'Cocktail & Networking Evenings', desc: "The Mina lounge — PH's favourite business gathering point.", img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&auto=format&fit=crop&q=80', delay: '0.2s' },
-            { type: 'Training', title: 'Seminars & Workshops', desc: 'Purpose-built halls with AV support and catering.', img: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=400&auto=format&fit=crop&q=80', delay: '0.3s' },
+            { type: 'Business', title: 'Corporate Meetings & Conferences', desc: 'Versatile rooms with presentation tech for up to 120 guests.', img: 'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=800&auto=format&fit=crop&q=80', delay: '0s' },
+            { type: 'Celebrations', title: 'Weddings & Private Parties', desc: 'From intimate receptions to elaborate banquets.', img: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&auto=format&fit=crop&q=80', delay: '0.1s' },
+            { type: 'Networking', title: 'Cocktail & Networking Evenings', desc: "The Mina lounge — PH's favourite business gathering point.", img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop&q=80', delay: '0.2s' },
+            { type: 'Training', title: 'Seminars & Workshops', desc: 'Purpose-built halls with AV support and catering.', img: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&auto=format&fit=crop&q=80', delay: '0.3s' },
           ].map(event => (
             <FadeIn key={event.type} delay={event.delay}>
-              <div className="group flex gap-5 items-start p-5 sm:p-7 md:p-8 bg-white border border-gray-100 hover:border-l-4 hover:border-l-gold hover:shadow-2xl transition-all duration-500 cursor-pointer">
-                <div className="overflow-hidden flex-shrink-0">
-                  <img
-                    src={event.img}
-                    alt={event.title}
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    style={{ width: '90px', height: '76px' }}
-                    loading="lazy"
-                  />
-                </div>
-                <div>
+              <div className="group relative overflow-hidden cursor-pointer" style={{ aspectRatio: '4/3' }}>
+                <img
+                  src={event.img}
+                  alt={event.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
                   <div
-                    className="text-[9px] tracking-[0.24em] uppercase text-gold mb-1.5 font-inter"
+                    className="text-[9px] tracking-[0.26em] uppercase text-gold mb-2 font-inter"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
                     {event.type}
                   </div>
                   <h3
-                    className="text-[18px] sm:text-[21px] font-light text-navy leading-[1.3] mb-2 font-playfair"
+                    className="text-[20px] sm:text-[22px] font-light text-white leading-[1.2] mb-3 font-playfair"
                     style={{ fontFamily: "'Playfair Display', serif" }}
                   >
                     {event.title}
                   </h3>
                   <p
-                    className="text-[12px] sm:text-[13px] leading-[1.7] text-gray-500 mb-3 hidden sm:block font-inter"
+                    className="text-[12px] sm:text-[13px] leading-[1.6] text-white/60 mb-4 hidden sm:block font-inter"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
                     {event.desc}
                   </p>
                   <Link
                     href="/events"
-                    className="text-[10px] tracking-[0.2em] uppercase text-gold no-underline border-b border-gold/35 pb-0.5 hover:border-gold transition-colors font-inter"
+                    className="inline-flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase text-gold no-underline border-b border-gold/40 pb-0.5 hover:border-gold transition-colors font-inter"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
                     Enquire
@@ -364,6 +366,23 @@ export default async function HomePage() {
 
       {/* ── GALLERY ── */}
       <section className="p-0">
+        <div className="flex items-center justify-between px-5 sm:px-8 md:px-12 lg:px-16 py-8 border-t border-gray-100">
+          <div className="flex items-center gap-4">
+            <div className="w-6 h-px bg-gold/60" />
+            <span
+              className="text-[10px] tracking-[0.28em] uppercase text-gold font-inter"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              Gallery
+            </span>
+          </div>
+          <span
+            className="text-[12px] text-gray-400 font-inter tracking-[0.06em]"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            Spaces &amp; Experiences
+          </span>
+        </div>
         <div className="gallery-grid">
           {galleryImages.map((img, i) => (
             <div key={i} className="gallery-item relative overflow-hidden cursor-pointer group">
@@ -471,20 +490,31 @@ export default async function HomePage() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="px-5 sm:px-8 md:px-12 lg:px-16 py-20 md:py-28 text-center bg-warm-white">
-        <span
-          className="block text-[10px] tracking-[0.28em] uppercase text-gold mb-4 font-inter"
-          style={{ fontFamily: "'Inter', sans-serif" }}
-        >
-          Guest Reviews
-        </span>
-        <h2
-          className="font-playfair font-light text-navy leading-[1.12] mx-auto mb-4 max-w-[500px]"
-          style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(32px, 5vw, 58px)' }}
-        >
-          What Our <em className="italic text-gold">Guests Say</em>
-        </h2>
-        <div className="w-16 h-0.5 bg-gold mx-auto mb-12" />
+      <section className="px-5 sm:px-8 md:px-12 lg:px-16 py-20 md:py-28 bg-warm-white">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
+          <FadeIn>
+            <span
+              className="block text-[10px] tracking-[0.28em] uppercase text-gold mb-3 font-inter"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              Guest Reviews
+            </span>
+            <h2
+              className="font-playfair font-light text-navy leading-[1.12]"
+              style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(32px, 5vw, 52px)' }}
+            >
+              What Our <em className="italic text-gold">Guests Say</em>
+            </h2>
+          </FadeIn>
+          <FadeIn delay="0.1s">
+            <p
+              className="text-[13px] leading-[1.85] text-gray-500 max-w-[340px] font-inter"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              Unfiltered experiences from the guests who know Mina Hotels best.
+            </p>
+          </FadeIn>
+        </div>
         <HomeReviewsSection />
       </section>
 

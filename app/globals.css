@@ -58,7 +58,20 @@ body {
 
 .hero-scroll {
   opacity: 0;
-  animation: fadeUp 1s 1.6s ease forwards;
+  animation: fadeUp 0.8s 1.8s ease forwards;
+}
+
+.hero-subtitle {
+  opacity: 0;
+  animation: fadeUp 0.7s 1.3s ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg { animation: none; }
+  .hero-content, .hero-subtitle, .hero-scroll, .scroll-chevron { opacity: 1; transform: none; animation: none; }
+  .scroll-line::after { animation: none; }
+  .fade-in { opacity: 1; transform: none; transition: none; }
+  .marquee-track { animation: none; }
 }
 
 .scroll-chevron {
