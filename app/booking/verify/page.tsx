@@ -40,17 +40,19 @@ function VerifyContent() {
 
   if (state === 'verifying') {
     return (
-      <main className="min-h-screen flex items-center justify-center"
-        style={{ background: '#FFFDF7' }}>
+      <main className="min-h-screen flex items-center justify-center bg-warm-white">
         <div className="text-center">
-          <div className="w-12 h-12 border-4 border-[#C9A84C] border-t-transparent
-            rounded-full animate-spin mx-auto mb-6" />
-          <h2 className="text-xl font-light text-[#0A1628]"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+          <div className="w-12 h-12 border-2 border-gold border-t-transparent animate-spin mx-auto mb-6" />
+          <h2
+            className="font-playfair text-[22px] font-light text-navy"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
             Verifying your payment…
           </h2>
-          <p className="text-sm text-gray-500 mt-2"
-            style={{ fontFamily: "'Inter', sans-serif" }}>
+          <p
+            className="text-[13px] text-gray-400 mt-2 font-inter"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
             Please do not close this page
           </p>
         </div>
@@ -60,66 +62,81 @@ function VerifyContent() {
 
   if (state === 'success' && booking) {
     return (
-      <main className="min-h-screen pt-24 pb-20"
-        style={{ background: '#FFFDF7' }}>
+      <main className="min-h-screen pt-24 pb-20 bg-warm-white">
         <div className="max-w-lg mx-auto px-5 text-center">
-          <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
-            style={{ background: '#C9A84C' }}>
-            <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+          {/* Success icon — square, not circle */}
+          <div className="w-16 h-16 bg-gold flex items-center justify-center mx-auto mb-8">
+            <svg className="w-8 h-8 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2.5} d="M5 13l4 4L19 7" />
             </svg>
           </div>
 
-          <h1 className="text-3xl font-light text-[#0A1628] mb-2"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-            Booking Confirmed
+          <p
+            className="text-[10px] tracking-[0.3em] uppercase text-gold mb-3 font-inter"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            Reservation Confirmed
+          </p>
+          <h1
+            className="font-playfair text-[34px] font-light text-navy mb-3 leading-tight"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            Booking <em className="italic text-gold">Confirmed</em>
           </h1>
-          <p className="text-sm text-gray-500 mb-8"
-            style={{ fontFamily: "'Inter', sans-serif" }}>
+          <div className="w-16 h-0.5 bg-gold mx-auto mb-4" />
+          <p
+            className="text-[13px] text-gray-400 mb-8 font-inter"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
             A confirmation email has been sent to {booking.guestDetails?.email}
           </p>
 
-          <div className="border border-[#E8E0D0] rounded-sm p-6 text-left mb-6"
-            style={{ background: '#fff' }}>
-            <div className="flex justify-between items-center mb-4 pb-4
-              border-b border-[#E8E0D0]">
-              <span className="text-xs tracking-widest uppercase text-gray-400"
-                style={{ fontFamily: "'Inter', sans-serif" }}>
+          {/* Booking details card */}
+          <div
+            className="border border-gray-200 p-6 text-left mb-8 bg-white"
+          >
+            <div className="flex justify-between items-center mb-5 pb-5 border-b border-gray-100">
+              <span
+                className="text-[9px] tracking-[0.22em] uppercase text-gray-400 font-inter"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
                 Booking Reference
               </span>
-              <span className="font-mono font-bold text-[#0A1628] text-lg">
+              <span
+                className="font-mono font-bold text-navy text-[16px]"
+              >
                 {booking.reference}
               </span>
             </div>
 
-            <div className="space-y-3 text-sm" style={{ fontFamily: "'Inter', sans-serif" }}>
+            <div className="space-y-3 font-inter" style={{ fontFamily: "'Inter', sans-serif" }}>
               {booking.room?.name && (
-                <div className="flex justify-between">
-                  <span className="text-gray-500">Room</span>
-                  <span className="text-[#0A1628] font-medium">
+                <div className="flex justify-between text-[13px]">
+                  <span className="text-gray-400">Room</span>
+                  <span className="text-navy font-medium">
                     {booking.room.name}{booking.room.roomNumber ? ` — ${booking.room.roomNumber}` : ''}
                   </span>
                 </div>
               )}
-              <div className="flex justify-between">
-                <span className="text-gray-500">Check-in</span>
-                <span className="text-[#0A1628]">
+              <div className="flex justify-between text-[13px]">
+                <span className="text-gray-400">Check-in</span>
+                <span className="text-navy">
                   {new Date(booking.checkIn).toLocaleDateString('en-GB', {
                     weekday: 'short', day: 'numeric', month: 'long', year: 'numeric',
                   })}
                 </span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-gray-500">Check-out</span>
-                <span className="text-[#0A1628]">
+              <div className="flex justify-between text-[13px]">
+                <span className="text-gray-400">Check-out</span>
+                <span className="text-navy">
                   {new Date(booking.checkOut).toLocaleDateString('en-GB', {
                     weekday: 'short', day: 'numeric', month: 'long', year: 'numeric',
                   })}
                 </span>
               </div>
-              <div className="flex justify-between pt-3 border-t border-[#E8E0D0]">
-                <span className="text-gray-500">Total Paid</span>
-                <span className="font-semibold text-base" style={{ color: '#C9A84C' }}>
+              <div className="flex justify-between pt-3 border-t border-gray-100 text-[14px]">
+                <span className="text-gray-400">Total Paid</span>
+                <span className="font-semibold text-gold">
                   ₦{booking.totalAmount?.toLocaleString()}
                 </span>
               </div>
@@ -127,15 +144,18 @@ function VerifyContent() {
           </div>
 
           <div className="flex gap-3 justify-center">
-            <Link href="/"
-              className="px-6 py-3 text-sm border border-[#0A1628] text-[#0A1628]
-                hover:bg-[#0A1628] hover:text-white transition-colors"
-              style={{ fontFamily: "'Inter', sans-serif" }}>
+            <Link
+              href="/"
+              className="px-7 py-3.5 text-[11px] tracking-[0.22em] uppercase border border-navy text-navy hover:bg-navy hover:text-white transition-colors no-underline font-inter"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
               Back to Home
             </Link>
-            <Link href="/rooms"
-              className="px-6 py-3 text-sm text-white transition-colors"
-              style={{ background: '#C9A84C', fontFamily: "'Inter', sans-serif" }}>
+            <Link
+              href="/rooms"
+              className="px-7 py-3.5 text-[11px] tracking-[0.22em] uppercase bg-gold text-navy font-semibold hover:bg-gold-light transition-colors no-underline font-inter"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
               Explore More
             </Link>
           </div>
@@ -145,39 +165,54 @@ function VerifyContent() {
   }
 
   return (
-    <main className="min-h-screen pt-24 pb-20" style={{ background: '#FFFDF7' }}>
+    <main className="min-h-screen pt-24 pb-20 bg-warm-white">
       <div className="max-w-lg mx-auto px-5 text-center">
-        <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
-          style={{ background: '#fee2e2' }}>
-          <svg className="w-10 h-10 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        {/* Error icon — square */}
+        <div className="w-16 h-16 bg-red-100 flex items-center justify-center mx-auto mb-8">
+          <svg className="w-8 h-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </div>
 
-        <h1 className="text-3xl font-light text-[#0A1628] mb-2"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-          Payment Unsuccessful
+        <p
+          className="text-[10px] tracking-[0.3em] uppercase text-gray-400 mb-3 font-inter"
+          style={{ fontFamily: "'Inter', sans-serif" }}
+        >
+          Payment Issue
+        </p>
+        <h1
+          className="font-playfair text-[34px] font-light text-navy mb-3 leading-tight"
+          style={{ fontFamily: "'Playfair Display', serif" }}
+        >
+          Payment <em className="italic">Unsuccessful</em>
         </h1>
-        <p className="text-sm text-gray-500 mb-2"
-          style={{ fontFamily: "'Inter', sans-serif" }}>
+        <div className="w-16 h-0.5 bg-gray-200 mx-auto mb-5" />
+        <p
+          className="text-[13px] text-gray-500 mb-2 font-inter"
+          style={{ fontFamily: "'Inter', sans-serif" }}
+        >
           {errorMessage}
         </p>
-        <p className="text-xs text-gray-400 mb-8"
-          style={{ fontFamily: "'Inter', sans-serif" }}>
-          Your booking has been held for 30 minutes.
-          You can try paying again or contact us for help.
+        <p
+          className="text-[12px] text-gray-400 mb-8 font-inter"
+          style={{ fontFamily: "'Inter', sans-serif" }}
+        >
+          Your booking has been held for 30 minutes. You can try paying again or contact us for help.
         </p>
 
         <div className="flex gap-3 justify-center">
-          <Link href="/rooms"
-            className="px-6 py-3 text-sm border border-[#0A1628] text-[#0A1628]
-              hover:bg-[#0A1628] hover:text-white transition-colors"
-            style={{ fontFamily: "'Inter', sans-serif" }}>
+          <Link
+            href="/rooms"
+            className="px-7 py-3.5 text-[11px] tracking-[0.22em] uppercase border border-navy text-navy hover:bg-navy hover:text-white transition-colors no-underline font-inter"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
             Try Again
           </Link>
-          <Link href="/contact"
-            className="px-6 py-3 text-sm text-white"
-            style={{ background: '#0A1628', fontFamily: "'Inter', sans-serif" }}>
+          <Link
+            href="/contact"
+            className="px-7 py-3.5 text-[11px] tracking-[0.22em] uppercase bg-navy text-white font-semibold hover:bg-navy/90 transition-colors no-underline font-inter"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
             Contact Us
           </Link>
         </div>
@@ -188,10 +223,13 @@ function VerifyContent() {
 
 function VerifyFallback() {
   return (
-    <main className="min-h-screen flex items-center justify-center" style={{ background: '#FFFDF7' }}>
+    <main className="min-h-screen flex items-center justify-center bg-warm-white">
       <div className="text-center">
-        <div className="w-12 h-12 border-4 border-[#C9A84C] border-t-transparent rounded-full animate-spin mx-auto mb-6" />
-        <p className="text-sm text-gray-500" style={{ fontFamily: "'Inter', sans-serif" }}>
+        <div className="w-12 h-12 border-2 border-gold border-t-transparent animate-spin mx-auto mb-6" />
+        <p
+          className="text-[13px] text-gray-400 font-inter"
+          style={{ fontFamily: "'Inter', sans-serif" }}
+        >
           Loading…
         </p>
       </div>

@@ -202,8 +202,8 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
         <div className="flex items-center justify-between px-5 sm:px-8 py-5 border-b border-white/10 sticky top-0 bg-dark-section z-10">
           <div>
             <p className="text-[10px] tracking-[0.28em] uppercase text-gold mb-0.5">Mina Hotels</p>
-            <h2 className="font-cormorant text-xl sm:text-2xl font-light text-white"
-              style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+            <h2 className="font-playfair text-xl sm:text-2xl font-light text-white"
+              style={{ fontFamily: "'Playfair Display', serif" }}>
               {step === 'success'
                 ? 'Reservation Received'
                 : preSelectedRoom
@@ -248,8 +248,8 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
                     className="w-16 h-12 object-cover flex-shrink-0" />
                   <div>
                     <p className="text-[9px] tracking-[0.18em] uppercase text-gold mb-0.5">{preSelectedRoom.category}</p>
-                    <p className="font-cormorant text-[18px] text-white font-light"
-                      style={{ fontFamily: "'Cormorant Garamond', serif" }}>{preSelectedRoom.name}</p>
+                    <p className="font-playfair text-[18px] text-white font-light"
+                      style={{ fontFamily: "'Playfair Display', serif" }}>{preSelectedRoom.name}</p>
                     <p className="text-[12px] text-white/50">
                       ₦{preSelectedRoom.pricePerNight.toLocaleString()} / night
                     </p>
@@ -308,7 +308,7 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
               <button
                 onClick={handleCheckDates}
                 disabled={!checkIn || !checkOut || nights < 1 || checkingAvailability}
-                className="w-full py-3.5 bg-gold text-white text-[11px] tracking-[0.2em] uppercase disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gold-light transition-colors"
+                className="w-full py-3.5 bg-gold text-navy text-[11px] tracking-[0.2em] uppercase font-semibold disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gold-light transition-colors"
               >
                 {checkingAvailability
                   ? 'Checking availability…'
@@ -353,7 +353,7 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
               {availableRooms.length === 0 ? (
                 checkingAvailability ? (
                   <div className="py-10 text-center">
-                    <div className="w-8 h-8 border-2 border-gold/30 border-t-gold rounded-full animate-spin mx-auto mb-4" />
+                    <div className="w-8 h-8 border-2 border-gold/30 border-t-gold animate-spin mx-auto mb-4" />
                     <p className="text-[13px] text-white/50">Checking availability…</p>
                   </div>
                 ) : (
@@ -378,12 +378,12 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
                       <div className="flex items-start justify-between gap-2">
                         <div>
                           <p className="text-[9px] tracking-[0.18em] uppercase text-gold mb-0.5">{r.category}</p>
-                          <h4 className="font-cormorant text-base sm:text-lg text-white font-light"
-                            style={{ fontFamily: "'Cormorant Garamond', serif" }}>{r.name}</h4>
+                          <h4 className="font-playfair text-base sm:text-lg text-white font-light"
+                            style={{ fontFamily: "'Playfair Display', serif" }}>{r.name}</h4>
                         </div>
                         <div className="text-right flex-shrink-0">
-                          <p className="font-cormorant text-lg sm:text-xl text-white font-light"
-                            style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                          <p className="font-playfair text-lg sm:text-xl text-white font-light"
+                            style={{ fontFamily: "'Playfair Display', serif" }}>
                             ₦{r.pricePerNight.toLocaleString()}
                           </p>
                           <p className="text-[10px] text-white/40">/ night</p>
@@ -409,7 +409,7 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
                   Back
                 </button>
                 <button onClick={() => setStep('details')} disabled={!selectedRoomId}
-                  className="flex-1 py-3 bg-gold text-white text-[11px] tracking-[0.2em] uppercase disabled:opacity-40 hover:bg-gold-light transition-colors">
+                  className="flex-1 py-3 bg-gold text-navy text-[11px] tracking-[0.2em] uppercase font-semibold disabled:opacity-40 hover:bg-gold-light transition-colors">
                   Continue
                 </button>
               </div>
@@ -426,13 +426,13 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
                   <img src={bookedRoom.img} alt={bookedRoom.name} className="w-14 h-11 object-cover flex-shrink-0" />
                   <div className="flex-1 min-w-0">
                     <p className="text-[9px] tracking-[0.16em] uppercase text-gold mb-0.5">{bookedRoom.category}</p>
-                    <p className="font-cormorant text-[17px] text-white font-light truncate"
-                      style={{ fontFamily: "'Cormorant Garamond', serif" }}>{bookedRoom.name}</p>
+                    <p className="font-playfair text-[17px] text-white font-light truncate"
+                      style={{ fontFamily: "'Playfair Display', serif" }}>{bookedRoom.name}</p>
                   </div>
                   <div className="text-right flex-shrink-0">
                     <p className="text-[11px] text-white/50">{nights}n × ₦{bookedRoom.pricePerNight.toLocaleString()}</p>
-                    <p className="font-cormorant text-[18px] text-white font-light"
-                      style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                    <p className="font-playfair text-[18px] text-white font-light"
+                      style={{ fontFamily: "'Playfair Display', serif" }}>
                       ₦{totalPrice.toLocaleString()}
                     </p>
                   </div>
@@ -472,7 +472,7 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
                   Back
                 </button>
                 <button onClick={() => setStep('confirm')} disabled={!form.firstName || !form.email}
-                  className="flex-1 py-3 bg-gold text-white text-[11px] tracking-[0.2em] uppercase disabled:opacity-40 hover:bg-gold-light transition-colors">
+                  className="flex-1 py-3 bg-gold text-navy text-[11px] tracking-[0.2em] uppercase font-semibold disabled:opacity-40 hover:bg-gold-light transition-colors">
                   Review
                 </button>
               </div>
@@ -488,8 +488,8 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
                   <img src={bookedRoom.img} alt={bookedRoom.name} className="w-20 h-14 object-cover flex-shrink-0" />
                   <div>
                     <p className="text-[9px] tracking-[0.18em] uppercase text-muted mb-0.5">{bookedRoom.category}</p>
-                    <p className="font-cormorant text-xl text-white font-light"
-                      style={{ fontFamily: "'Cormorant Garamond', serif" }}>{bookedRoom.name}</p>
+                    <p className="font-playfair text-xl text-white font-light"
+                      style={{ fontFamily: "'Playfair Display', serif" }}>{bookedRoom.name}</p>
                   </div>
                 </div>
                 <div className="border-t border-white/10 pt-4 grid grid-cols-2 gap-y-3 gap-x-4">
@@ -512,8 +512,8 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
                     <p className="text-[9px] tracking-[0.16em] uppercase text-muted mb-0.5">Total (est.)</p>
                     <p className="text-[11px] text-white/40">{nights} nights × ₦{bookedRoom.pricePerNight.toLocaleString()}</p>
                   </div>
-                  <p className="font-cormorant text-3xl text-white font-light"
-                    style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                  <p className="font-playfair text-3xl text-white font-light"
+                    style={{ fontFamily: "'Playfair Display', serif" }}>
                     ₦{totalPrice.toLocaleString()}
                   </p>
                 </div>
@@ -534,7 +534,7 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
                   Back
                 </button>
                 <button onClick={handleSubmit} disabled={submitting}
-                  className="flex-1 py-3 bg-gold text-white text-[11px] tracking-[0.2em] uppercase hover:bg-gold-light transition-colors disabled:opacity-70">
+                  className="flex-1 py-3 bg-gold text-navy text-[11px] tracking-[0.2em] uppercase font-semibold hover:bg-gold-light transition-colors disabled:opacity-70">
                   {submitting ? (loadingMessage || 'Processing…') : 'Confirm & Pay'}
                 </button>
               </div>
@@ -548,8 +548,8 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
                 <Check size={26} className="text-white" />
               </div>
               <div>
-                <h3 className="font-cormorant text-3xl text-white font-light mb-3"
-                  style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                <h3 className="font-playfair text-3xl text-white font-light mb-3"
+                  style={{ fontFamily: "'Playfair Display', serif" }}>
                   Thank you, {form.firstName}
                 </h3>
                 <p className="text-[14px] text-white/55 leading-relaxed max-w-sm mx-auto">
@@ -560,13 +560,13 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
               {confirmedRef && (
                 <div className="border border-white/10 p-5 text-left space-y-1.5 max-w-xs mx-auto">
                   <p className="text-[9px] tracking-[0.22em] uppercase text-gold">Reference Number</p>
-                  <p className="font-cormorant text-2xl text-white font-light"
-                    style={{ fontFamily: "'Cormorant Garamond', serif" }}>{confirmedRef}</p>
+                  <p className="font-playfair text-2xl text-white font-light"
+                    style={{ fontFamily: "'Playfair Display', serif" }}>{confirmedRef}</p>
                   <p className="text-[11px] text-white/35">Keep this for your records</p>
                 </div>
               )}
               <button onClick={reset}
-                className="px-8 py-3 bg-gold text-white text-[11px] tracking-[0.2em] uppercase hover:bg-gold-light transition-colors">
+                className="px-8 py-3 bg-gold text-navy text-[11px] tracking-[0.2em] uppercase font-semibold hover:bg-gold-light transition-colors">
                 Close
               </button>
             </div>
