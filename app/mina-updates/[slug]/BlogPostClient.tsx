@@ -12,7 +12,7 @@ function fmtDate(d?: string) {
 
 function RelatedCard({ post }: { post: PublicBlogPost }) {
   return (
-    <Link href={`/mina-updates/${post.slug}`} className="group flex flex-col overflow-hidden rounded-sm border border-[#E8E0D0] bg-white no-underline hover:shadow-md transition-shadow">
+    <Link href={`/mina-updates/${post.slug}`} className="group flex flex-col overflow-hidden border border-[#E8E0D0] bg-white no-underline hover:shadow-md transition-shadow">
       {post.coverImage && (
         <div className="aspect-[16/9] overflow-hidden">
           <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -151,7 +151,7 @@ export default function BlogPostClient({ slug }: { slug: string }) {
         {post.tags && post.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-8">
             {post.tags.map((tag) => (
-              <span key={tag} className="px-3 py-1 text-[11px] rounded-full border border-[#E8E0D0] text-[#4A5568]" style={{ fontFamily: "'Inter', sans-serif" }}>
+              <span key={tag} className="px-3 py-1 text-[10px] tracking-[0.12em] uppercase border border-[#E8E0D0] text-[#4A5568]" style={{ fontFamily: "'Inter', sans-serif" }}>
                 {tag}
               </span>
             ))}
@@ -206,7 +206,7 @@ export default function BlogPostClient({ slug }: { slug: string }) {
           {approvedComments.length > 0 && (
             <div className="space-y-4 mb-8">
               {approvedComments.map((c, i) => (
-                <div key={i} className="border border-[#E8E0D0] rounded-sm p-4">
+                <div key={i} className="border border-[#E8E0D0] p-4">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-[13px] font-medium text-[#0A1628]" style={{ fontFamily: "'Inter', sans-serif" }}>{c.name}</span>
                     <span className="text-[11px] text-[#9CA3AF]" style={{ fontFamily: "'Inter', sans-serif" }}>{fmtDate(c.createdAt)}</span>
@@ -219,7 +219,7 @@ export default function BlogPostClient({ slug }: { slug: string }) {
 
           {/* Comment form */}
           {commentStatus === 'done' ? (
-            <div className="border border-[#C9A84C]/30 bg-[#C9A84C]/5 rounded-sm p-5 text-[13px] text-[#4A5568]" style={{ fontFamily: "'Inter', sans-serif" }}>
+            <div className="border border-[#C9A84C]/30 bg-[#C9A84C]/5 p-5 text-[13px] text-[#4A5568]" style={{ fontFamily: "'Inter', sans-serif" }}>
               Thank you — your comment is awaiting moderation.
             </div>
           ) : (
@@ -266,8 +266,8 @@ export default function BlogPostClient({ slug }: { slug: string }) {
               <button
                 type="submit"
                 disabled={commentStatus === 'submitting'}
-                className="px-8 py-3 text-[11px] tracking-[0.18em] uppercase font-semibold transition-all duration-200 disabled:opacity-50"
-                style={{ background: '#0A1628', color: '#fff', fontFamily: "'Inter', sans-serif" }}
+                className="px-8 py-3.5 bg-gold text-navy text-[11px] tracking-[0.22em] uppercase font-semibold hover:bg-gold-light transition-colors disabled:opacity-50 cursor-pointer font-inter"
+                style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {commentStatus === 'submitting' ? 'Submitting…' : 'Submit Comment'}
               </button>

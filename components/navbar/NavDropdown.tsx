@@ -87,7 +87,7 @@ export default function NavDropdown({ label, items, showScrolled }: NavDropdownP
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="absolute top-full left-0 mt-3 min-w-[180px] rounded-md shadow-xl border border-white/10 py-2 z-50"
+            className="absolute top-full left-0 mt-3 min-w-[180px] shadow-xl border border-white/10 py-2 z-50"
             style={{ background: '#0A1628' }}
             role="menu"
           >

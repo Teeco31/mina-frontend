@@ -30,7 +30,7 @@ function BlogCard({ post }: { post: PublicBlogPost }) {
   return (
     <Link
       href={`/mina-updates/${post.slug}`}
-      className="group flex flex-col overflow-hidden rounded-sm border border-[#E8E0D0] bg-white hover:shadow-lg transition-shadow duration-300 no-underline"
+      className="group flex flex-col overflow-hidden border border-[#E8E0D0] bg-white hover:shadow-lg transition-shadow duration-300 no-underline"
     >
       {/* Cover image */}
       <div className="relative overflow-hidden aspect-[16/9] bg-[#F5F0E8]">
@@ -102,30 +102,37 @@ export default async function MinaUpdatesPage({ searchParams }: PageProps) {
   const { data: posts, total, pages } = await fetchBlogPosts(params)
 
   return (
-    <main className="pt-24 pb-20" style={{ background: '#FFFDF7' }}>
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
-
-        {/* Heading */}
-        <div className="text-center mb-12">
+    <main style={{ background: '#FAFAF8' }}>
+      {/* Hero */}
+      <section
+        className="relative flex items-end pb-24 overflow-hidden"
+        style={{ height: 'clamp(300px, 42vw, 480px)' }}
+      >
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=1800&auto=format&fit=crop&q=85')" }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to bottom, rgba(10,22,40,0.2) 0%, rgba(10,22,40,0.88) 100%)' }}
+        />
+        <div className="relative z-10 px-5 sm:px-8 md:px-12 pt-24">
           <p
-            className="text-[10px] tracking-[0.32em] uppercase mb-4"
-            style={{ color: '#C9A84C', fontFamily: "'Inter', sans-serif" }}
-          >
-            From the hotel
-          </p>
-          <h1
-            className="text-[42px] sm:text-[56px] font-light leading-none mb-4"
-            style={{ fontFamily: "'Playfair Display', serif", color: '#0A1628' }}
-          >
-            Mina Updates
-          </h1>
-          <p
-            className="text-[14px] text-[#4A5568] max-w-md mx-auto"
+            className="text-[10px] tracking-[0.3em] uppercase text-gold mb-4 font-inter"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
-            Stories, news &amp; offers from Mina Hotels
+            From the Hotel
           </p>
+          <h1
+            className="font-playfair text-white font-light leading-[1.05]"
+            style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(44px, 6vw, 88px)' }}
+          >
+            Mina <em className="italic">Updates</em>
+          </h1>
         </div>
+      </section>
+
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12 pt-14 pb-20">
 
         {/* Category filter tabs */}
         <div className="flex gap-1 flex-wrap justify-center mb-10">
@@ -194,3 +201,4 @@ export default async function MinaUpdatesPage({ searchParams }: PageProps) {
     </main>
   )
 }
+
