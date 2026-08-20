@@ -110,7 +110,7 @@ export default async function MinaUpdatesPage({ searchParams }: PageProps) {
       >
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=1800&auto=format&fit=crop&q=85')" }}
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1638342863994-ae4eee256688?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}
         />
         <div
           className="absolute inset-0"
