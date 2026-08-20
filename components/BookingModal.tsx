@@ -64,7 +64,10 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
     ? preSelectedRoom
     : availableRooms.find(r => r._id === selectedRoomId || r.id === selectedRoomId) || null
 
-  const totalPrice = (bookedRoom?.pricePerNight || 0) * (nights || 1)
+  const subtotalPrice = (bookedRoom?.pricePerNight || 0) * (nights || 1)
+  const discountRate = nights >= 5 ? 0.05 : 0
+  const discountAmount = parseFloat((subtotalPrice * discountRate).toFixed(2))
+  const totalPrice = parseFloat((subtotalPrice - discountAmount).toFixed(2))
 
   // ── Step logic ──────────────────────────────────────────────────────────────
   const steps = preSelectedRoom ? PRESELECT_STEPS : ALL_STEPS
@@ -431,6 +434,9 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
                   </div>
                   <div className="text-right flex-shrink-0">
                     <p className="text-[11px] text-white/50">{nights}n × ₦{bookedRoom.pricePerNight.toLocaleString()}</p>
+                    {discountRate > 0 && (
+                      <p className="text-[10px] text-green-400">−5% long-stay discount</p>
+                    )}
                     <p className="font-playfair text-[18px] text-white font-light"
                       style={{ fontFamily: "'Playfair Display', serif" }}>
                       ₦{totalPrice.toLocaleString()}
@@ -507,15 +513,24 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
                     </div>
                   ))}
                 </div>
-                <div className="border-t border-white/10 pt-4 flex justify-between items-end">
-                  <div>
-                    <p className="text-[9px] tracking-[0.16em] uppercase text-muted mb-0.5">Total (est.)</p>
+                <div className="border-t border-white/10 pt-4 space-y-2">
+                  <div className="flex justify-between items-center">
                     <p className="text-[11px] text-white/40">{nights} nights × ₦{bookedRoom.pricePerNight.toLocaleString()}</p>
+                    <p className="text-[13px] text-white/60">₦{subtotalPrice.toLocaleString()}</p>
                   </div>
-                  <p className="font-playfair text-3xl text-white font-light"
-                    style={{ fontFamily: "'Playfair Display', serif" }}>
-                    ₦{totalPrice.toLocaleString()}
-                  </p>
+                  {discountRate > 0 && (
+                    <div className="flex justify-between items-center">
+                      <p className="text-[11px] text-green-400">5% long-stay discount</p>
+                      <p className="text-[13px] text-green-400">−₦{discountAmount.toLocaleString()}</p>
+                    </div>
+                  )}
+                  <div className="flex justify-between items-end pt-2 border-t border-white/10">
+                    <p className="text-[9px] tracking-[0.16em] uppercase text-muted">Total (excl. tax)</p>
+                    <p className="font-playfair text-3xl text-white font-light"
+                      style={{ fontFamily: "'Playfair Display', serif" }}>
+                      ₦{totalPrice.toLocaleString()}
+                    </p>
+                  </div>
                 </div>
               </div>
 
