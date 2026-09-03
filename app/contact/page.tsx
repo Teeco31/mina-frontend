@@ -184,6 +184,8 @@ export default function ContactPage() {
                   </label>
                   <input
                     type="text"
+                    name="given-name"
+                    autoComplete="given-name"
                     required
                     placeholder="Emeka"
                     value={form.firstName}
@@ -200,6 +202,8 @@ export default function ContactPage() {
                   </label>
                   <input
                     type="text"
+                    name="family-name"
+                    autoComplete="family-name"
                     placeholder="Okafor"
                     value={form.lastName}
                     onChange={e => setForm({ ...form, lastName: e.target.value })}
@@ -217,6 +221,8 @@ export default function ContactPage() {
                   </label>
                   <input
                     type="email"
+                    name="email"
+                    autoComplete="email"
                     required
                     placeholder="emeka@email.com"
                     value={form.email}
@@ -233,6 +239,8 @@ export default function ContactPage() {
                   </label>
                   <input
                     type="tel"
+                    name="tel"
+                    autoComplete="tel"
                     placeholder="+234 801 234 5678"
                     value={form.phone}
                     onChange={e => setForm({ ...form, phone: e.target.value })}
@@ -269,6 +277,8 @@ export default function ContactPage() {
                 </label>
                 <textarea
                   required
+                  name="message"
+                  autoComplete="off"
                   placeholder="Tell us how we can help…"
                   value={form.message}
                   onChange={e => setForm({ ...form, message: e.target.value })}
