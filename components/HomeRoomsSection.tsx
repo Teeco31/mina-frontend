@@ -37,8 +37,8 @@ export default async function HomeRoomsSection() {
   const byCategory: Record<string, ApiRoom> = {}
   apiRooms.forEach(r => { if (!byCategory[r.category]) byCategory[r.category] = r })
 
-  // Show first 3 categories in order for the preview grid
-  const PREVIEW_ORDER = ['standard', 'deluxe', 'royal', 'executive']
+  // Exactly 3 cards — hardcoded so new categories never auto-appear here
+  const PREVIEW_ORDER = ['standard', 'deluxe', 'royal']
   const previewCards = PREVIEW_ORDER
     .filter(cat => byCategory[cat])
     .map(cat => {
@@ -185,6 +185,19 @@ export default async function HomeRoomsSection() {
           </div>
         </FadeIn>
       )}
+
+      {/* View all rooms CTA */}
+      <FadeIn delay="0.1s">
+        <div className="flex justify-center mt-10">
+          <Link
+            href="/rooms"
+            className="inline-block px-10 py-3.5 border border-gold/50 text-gold text-[11px] tracking-[0.22em] uppercase font-semibold hover:bg-gold hover:text-navy transition-colors no-underline font-inter"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            View All Rooms
+          </Link>
+        </div>
+      </FadeIn>
     </>
   )
 }
