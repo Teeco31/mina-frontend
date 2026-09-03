@@ -135,7 +135,6 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
     if (!bookedRoom) return
     setSubmitting(true)
     setSubmitError('')
-    setLoadingMessage('Creating your booking…')
 
     const result = await initiateBooking({
       roomId: confirmedRoomId || bookedRoom._id,
@@ -157,25 +156,9 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
       return
     }
 
-    // Store booking details so the verify page can show them immediately
-    try {
-      sessionStorage.setItem('pendingBooking', JSON.stringify({
-        bookingId: result.data.bookingId,
-        reference: result.data.reference,
-        paymentReference: result.data.paymentReference,
-        totalAmount: result.data.totalAmount,
-        checkIn: result.data.checkIn,
-        checkOut: result.data.checkOut,
-        room: result.data.room,
-        guestDetails: result.data.guestDetails,
-      }))
-    } catch {
-      // sessionStorage unavailable — verify page will call the API directly
-    }
-
-    setLoadingMessage('Redirecting to secure payment…')
-    await new Promise(resolve => setTimeout(resolve, 700))
-    window.location.href = result.data.paymentUrl
+    // Payment disabled — show success screen directly
+    setConfirmedRef(result.data.reference)
+    setStep('success')
   }
 
   const reset = () => {
@@ -541,7 +524,7 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
               )}
 
               <p className="text-[12px] text-white/40 leading-relaxed">
-                You will be redirected to our secure payment page. Your reservation is held for 30 minutes.
+                By confirming, your booking request will be sent to our team. We will contact you shortly to arrange payment and finalise your reservation.
               </p>
               <div className="flex gap-3">
                 <button onClick={() => setStep('details')}
@@ -550,7 +533,7 @@ export default function BookingModal({ isOpen, onClose, preSelectedRoom }: Booki
                 </button>
                 <button onClick={handleSubmit} disabled={submitting}
                   className="flex-1 py-3 bg-gold text-navy text-[11px] tracking-[0.2em] uppercase font-semibold hover:bg-gold-light transition-colors disabled:opacity-70">
-                  {submitting ? (loadingMessage || 'Processing…') : 'Confirm & Pay'}
+                  {submitting ? 'Submitting…' : 'Confirm Booking'}
                 </button>
               </div>
             </div>
