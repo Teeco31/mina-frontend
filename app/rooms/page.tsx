@@ -251,7 +251,7 @@ function RoomContent({ room }: { room: RoomDisplay }) {
         </p>
 
         {/* Specs row */}
-        <div className="flex gap-7 mb-6 pb-6 border-b border-gray-200 flex-wrap">
+        {/* <div className="flex gap-7 mb-6 pb-6 border-b border-gray-200 flex-wrap">
           {[
             { label: 'Size', val: room.size },
             { label: 'Bed', val: room.bed },
@@ -272,7 +272,7 @@ function RoomContent({ room }: { room: RoomDisplay }) {
               </p>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* Amenities with lucide-style dash */}
         <div className="grid grid-cols-2 gap-y-2.5 gap-x-4 mb-8">
