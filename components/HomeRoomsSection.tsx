@@ -37,10 +37,21 @@ export default async function HomeRoomsSection() {
   const byCategory: Record<string, ApiRoom> = {}
   apiRooms.forEach(r => { if (!byCategory[r.category]) byCategory[r.category] = r })
 
-  // Exactly 3 cards — hardcoded so new categories never auto-appear here
-  const PREVIEW_ORDER = ['standard', 'deluxe', 'royal']
+  const suite = byCategory['luxury-suite']
+  const suiteData = suite ? {
+    name: suite.name,
+    price: `₦${suite.pricePerNight.toLocaleString()}`,
+    desc: suite.description,
+    img: suite.primaryImage || suite.images?.[0]?.url || CATEGORY_IMAGES['luxury-suite'] || '',
+  } : null
+
+  // Fill grid with exactly enough cards so grid + featured suite = 4 total
+  // If suite exists: 3 grid cards. If not: 4 grid cards.
+  const GRID_COUNT = suiteData ? 3 : 4
+  const PREVIEW_ORDER = ['standard', 'deluxe', 'royal', 'executive', 'exclusive-suite']
   const previewCards = PREVIEW_ORDER
     .filter(cat => byCategory[cat])
+    .slice(0, GRID_COUNT)
     .map(cat => {
       const r = byCategory[cat]
       return {
@@ -51,14 +62,6 @@ export default async function HomeRoomsSection() {
         img: r.primaryImage || r.images?.[0]?.url || CATEGORY_IMAGES[cat] || '',
       }
     })
-
-  const suite = byCategory['luxury-suite']
-  const suiteData = suite ? {
-    name: suite.name,
-    price: `₦${suite.pricePerNight.toLocaleString()}`,
-    desc: suite.description,
-    img: suite.primaryImage || suite.images?.[0]?.url || CATEGORY_IMAGES['luxury-suite'] || '',
-  } : null
 
   if (previewCards.length === 0 && !suiteData) {
     return (
