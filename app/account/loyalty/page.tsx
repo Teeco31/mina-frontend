@@ -193,8 +193,8 @@ export default function LoyaltyPage() {
                   +234 901 552 5389
                 </a>{' '}
                 or email{' '}
-                <a href="mailto:info@mina-hotels.com" className="text-gold hover:text-gold-light transition-colors underline">
-                  info@mina-hotels.com
+                <a href="mailto:frontdesk@minahotels.com" className="text-gold hover:text-gold-light transition-colors underline">
+                  frontdesk@minahotels.com
                 </a>{' '}
                 and quote your rewards number.
               </p>

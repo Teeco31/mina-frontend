@@ -68,7 +68,7 @@ const hotelJsonLd = {
   url: SITE_URL,
   logo: `${SITE_URL}/images/images.png`,
   image: `${SITE_URL}/og-image.jpg`,
-  telephone: '+2348056155303',
+  telephone: '+2349015525389',
   email: 'info@minahotels.com',
   address: {
     '@type': 'PostalAddress',

@@ -333,7 +333,7 @@ export default function LoyaltyPage() {
                 Call to Redeem
               </a>
               <a
-                href="mailto:info@mina-hotels.com?subject=Mina Rewards Redemption"
+                href="mailto:frontdesk@minahotels.com?subject=Mina Rewards Redemption"
                 className="inline-block px-9 py-3.5 border border-gold text-gold text-[11px] tracking-[0.22em] uppercase font-semibold hover:bg-gold hover:text-navy transition-all no-underline font-inter"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >

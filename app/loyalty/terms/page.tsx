@@ -374,11 +374,11 @@ export default function LoyaltyTermsPage() {
               </a>
               <span className="hidden sm:block text-white/20">·</span>
               <a
-                href="mailto:reservations@mina-hotels.com"
+                href="mailto:frontdesk@minahotels.com"
                 className="text-[13px] text-white/50 hover:text-gold transition-colors font-inter"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
-                reservations@mina-hotels.com
+                frontdesk@minahotels.com
               </a>
             </div>
           </div>

@@ -11,27 +11,32 @@ export default function ContactPage() {
   const [form, setForm] = useState({ firstName: '', lastName: '', email: '', phone: '', type: 'Room Reservation', message: '' })
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setSubmitting(true)
-    await submitEnquiry({
-      firstName: form.firstName,
-      lastName: form.lastName,
-      email: form.email,
-      phone: form.phone,
+    setError('')
+    const result = await submitEnquiry({
+      firstName: form.firstName.trim(),
+      lastName: form.lastName.trim(),
+      email: form.email.trim(),
+      phone: form.phone.trim(),
       type: form.type.toLowerCase().replace(/\s+/g, '-'),
-      message: form.message,
+      message: form.message.trim(),
     })
-    // Always show success — even if the API is down the guest gets confirmation
     setSubmitting(false)
-    setSubmitted(true)
+    if (result.success) {
+      setSubmitted(true)
+    } else {
+      setError('We could not send your message. Please try again, or call us on +234 901 552 5389.')
+    }
   }
 
   const details = [
     { icon: <><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></>, title: 'Address', content: '23 Igbodo Street, Old GRA\nPort Harcourt, Rivers State\nNigeria' },
-    { icon: <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 9.79a19.79 19.79 0 01-3.07-8.67A2 2 0 011.92 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>, title: 'Phone', content: '+234 805 615 5303' },
-    { icon: <><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></>, title: 'Email', content: 'info@mina-hotels.com' },
+    { icon: <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 9.79a19.79 19.79 0 01-3.07-8.67A2 2 0 011.92 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>, title: 'Phone', content: '+234 901 552 5389' },
+    { icon: <><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></>, title: 'Email', content: 'frontdesk@minahotels.com' },
     { icon: <><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></>, title: 'Hours', content: 'Front Desk: 24 hours\nCheck-in: From 3:00 PM\nCheck-out: By 11:00 AM' },
   ]
 
@@ -77,14 +82,14 @@ export default function ContactPage() {
             Book a Room
           </button>
           <a
-            href="tel:+2348056155303"
+            href="tel:+2349015525389"
             className="flex-1 py-3.5 border border-white/15 text-white text-[11px] tracking-[0.22em] uppercase text-center hover:border-gold hover:text-gold transition-all no-underline font-inter"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             Call Us Now
           </a>
           <a
-            href="mailto:info@mina-hotels.com"
+            href="mailto:frontdesk@minahotels.com"
             className="flex-1 py-3.5 border border-white/15 text-white text-[11px] tracking-[0.22em] uppercase text-center hover:border-gold hover:text-gold transition-all no-underline font-inter"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
@@ -277,6 +282,7 @@ export default function ContactPage() {
                 </label>
                 <textarea
                   required
+                  maxLength={2000}
                   name="message"
                   autoComplete="off"
                   placeholder="Tell us how we can help…"
@@ -285,6 +291,11 @@ export default function ContactPage() {
                   className="contact-input min-h-[90px]"
                 />
               </div>
+              {error && (
+                <p role="alert" className="text-[13px] text-red-400 font-inter" style={{ fontFamily: "'Inter', sans-serif" }}>
+                  {error}
+                </p>
+              )}
               <button
                 type="submit"
                 disabled={submitting}

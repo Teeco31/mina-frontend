@@ -155,18 +155,18 @@ export default function Footer() {
             </ul>
             <div className="flex flex-col gap-2">
               <a
-                href="tel:+2348056155303"
+                href="tel:+2349015525389"
                 className="text-[12px] text-white/40 hover:text-gold transition-colors no-underline"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
-                +234 805 615 5303
+                +234 901 552 5389
               </a>
               <a
-                href="mailto:info@mina-hotels.com"
+                href="mailto:frontdesk@minahotels.com"
                 className="text-[12px] text-white/40 hover:text-gold transition-colors no-underline"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
-                info@mina-hotels.com
+                frontdesk@minahotels.com
               </a>
             </div>
           </div>

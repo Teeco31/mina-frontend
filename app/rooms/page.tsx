@@ -136,8 +136,8 @@ export default async function RoomsPage() {
           <p className="text-[14px] text-gray-500 mb-4" style={{ fontFamily: "'Inter', sans-serif" }}>
             No rooms available at the moment. Please contact us directly.
           </p>
-          <a href="tel:+2348056155303" className="text-[#C9A84C] text-sm underline" style={{ fontFamily: "'Inter', sans-serif" }}>
-            Call +234 805 615 5303
+          <a href="tel:+2349015525389" className="text-[#C9A84C] text-sm underline" style={{ fontFamily: "'Inter', sans-serif" }}>
+            Call +234 901 552 5389
           </a>
         </section>
       )}
