@@ -9,20 +9,27 @@ export default function HomeContactForm() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
 
-  const handleSubmit = async () => {
-    if (!form.firstName || !form.email || !form.message) return
+  const [error, setError] = useState('')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!form.firstName.trim() || !form.email.trim() || !form.message.trim()) return
     setSubmitting(true)
-    await submitEnquiry({
-      firstName: form.firstName,
-      lastName: form.lastName,
-      email: form.email,
-      phone: form.phone,
+    setError('')
+    const result = await submitEnquiry({
+      firstName: form.firstName.trim(),
+      lastName: form.lastName.trim(),
+      email: form.email.trim(),
+      phone: form.phone.trim(),
       type: form.type.toLowerCase().replace(/\s+/g, '-'),
-      message: form.message,
+      message: form.message.trim(),
     })
-    // Always show success — whether API worked or not
     setSubmitting(false)
-    setSubmitted(true)
+    if (result.success) {
+      setSubmitted(true)
+    } else {
+      setError('We could not send your message. Please try again, or call us on +234 901 552 5389.')
+    }
   }
 
   if (submitted) {
@@ -60,7 +67,7 @@ export default function HomeContactForm() {
 
   return (
     <FadeIn delay="0.15s">
-      <div className="flex flex-col gap-5">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div className="flex flex-col gap-2">
             <label
@@ -71,6 +78,9 @@ export default function HomeContactForm() {
             </label>
             <input
               type="text"
+              name="given-name"
+              autoComplete="given-name"
+              required
               placeholder="Emeka"
               value={form.firstName}
               onChange={e => setForm({ ...form, firstName: e.target.value })}
@@ -86,6 +96,8 @@ export default function HomeContactForm() {
             </label>
             <input
               type="text"
+              name="family-name"
+              autoComplete="family-name"
               placeholder="Okafor"
               value={form.lastName}
               onChange={e => setForm({ ...form, lastName: e.target.value })}
@@ -103,6 +115,9 @@ export default function HomeContactForm() {
             </label>
             <input
               type="email"
+              name="email"
+              autoComplete="email"
+              required
               placeholder="emeka@email.com"
               value={form.email}
               onChange={e => setForm({ ...form, email: e.target.value })}
@@ -118,6 +133,8 @@ export default function HomeContactForm() {
             </label>
             <input
               type="tel"
+              name="tel"
+              autoComplete="tel"
               placeholder="+234 801 234 5678"
               value={form.phone}
               onChange={e => setForm({ ...form, phone: e.target.value })}
@@ -142,6 +159,7 @@ export default function HomeContactForm() {
             <option>Corporate Stay</option>
             <option>General Enquiry</option>
             <option>Loyalty Programme</option>
+            <option>Dining Reservation</option>
           </select>
         </div>
         <div className="flex flex-col gap-2">
@@ -152,21 +170,30 @@ export default function HomeContactForm() {
             Message
           </label>
           <textarea
+            required
+            maxLength={2000}
+            name="message"
+            autoComplete="off"
             placeholder="Tell us how we can help…"
             value={form.message}
             onChange={e => setForm({ ...form, message: e.target.value })}
             className="contact-input min-h-[80px]"
           />
         </div>
+        {error && (
+          <p role="alert" className="text-[13px] text-red-400 font-inter" style={{ fontFamily: "'Inter', sans-serif" }}>
+            {error}
+          </p>
+        )}
         <button
-          onClick={handleSubmit}
+          type="submit"
           disabled={submitting || !form.firstName || !form.email || !form.message}
           className="self-start px-10 py-3.5 bg-gold text-navy text-[11px] tracking-[0.22em] uppercase font-semibold hover:bg-gold-light transition-colors disabled:opacity-50 cursor-pointer font-inter"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
           {submitting ? 'Sending…' : 'Send Message'}
         </button>
-      </div>
+      </form>
     </FadeIn>
   )
 }
